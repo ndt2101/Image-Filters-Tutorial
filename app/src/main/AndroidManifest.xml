@@ -8,12 +8,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.ImageFilters">
+        android:theme="@style/Theme.ImageFilters"
+        android:name=".utilities.AppConfig">
         <activity
-            android:name=".EditingNewImageActivity"
+            android:name=".activities.editimage.EditingNewImageActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.main.MainActivity"
             android:exported="true"
             android:theme="@style/FullScreen">
             <intent-filter>

@@ -1,4 +1,4 @@
-package com.tuan2101.imagefilters
+package com.tuan2101.imagefilters.utilities
 
 /**
  * Created by ndt2101 on 3/2/2022.

@@ -1,4 +1,4 @@
-package com.tuan2101.imagefilters
+package com.tuan2101.imagefilters.activities.main
 
 import android.app.Activity
 import android.content.Intent
@@ -7,6 +7,8 @@ import android.provider.MediaStore
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import com.tuan2101.imagefilters.activities.editimage.EditingNewImageActivity
+import com.tuan2101.imagefilters.utilities.Constants
 import com.tuan2101.imagefilters.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
