@@ -1,6 +1,7 @@
 package com.tuan2101.imagefilters.dependencyinjection
 
 import com.tuan2101.imagefilters.viewmodels.EditImageViewModel
+import com.tuan2101.imagefilters.viewmodels.SavedImageViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -11,4 +12,5 @@ import org.koin.dsl.module
 // Cung cấp instance EditImageViewModel
 val viewModelModelModule = module {
     viewModel { EditImageViewModel(editImageRepository = get()) } // get duoc do da tao instance editImageRepository trong RepositoryModule
+    viewModel { SavedImageViewModel(savedImagesRepository = get()) }
 }

@@ -5,10 +5,12 @@
       <map>
         <entry key="..\:/AndroidProject/ImageFilters/app/src/main/res/drawable/landing_background.xml" value="0.141" />
         <entry key="..\:/AndroidProject/ImageFilters/app/src/main/res/drawable/landing_background_drawable.xml" value="0.1" />
-        <entry key="..\:/AndroidProject/ImageFilters/app/src/main/res/layout/activity_editing_new_image.xml" value="0.176" />
-        <entry key="..\:/AndroidProject/ImageFilters/app/src/main/res/layout/activity_filtered_image.xml" value="0.1875" />
+        <entry key="..\:/AndroidProject/ImageFilters/app/src/main/res/layout/activity_editing_new_image.xml" value="0.152" />
+        <entry key="..\:/AndroidProject/ImageFilters/app/src/main/res/layout/activity_filtered_image.xml" value="0.16" />
         <entry key="..\:/AndroidProject/ImageFilters/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/AndroidProject/ImageFilters/app/src/main/res/layout/activity_saved_image.xml" value="0.11875" />
         <entry key="..\:/AndroidProject/ImageFilters/app/src/main/res/layout/item_filter.xml" value="0.25" />
+        <entry key="..\:/AndroidProject/ImageFilters/app/src/main/res/layout/saved_image_item.xml" value="0.1375" />
       </map>
     </option>
   </component>

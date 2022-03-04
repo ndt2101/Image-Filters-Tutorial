@@ -8,6 +8,7 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.tuan2101.imagefilters.activities.editimage.EditingNewImageActivity
+import com.tuan2101.imagefilters.activities.savedImage.SavedImageActivity
 import com.tuan2101.imagefilters.utilities.Constants
 import com.tuan2101.imagefilters.databinding.ActivityMainBinding
 
@@ -41,6 +42,10 @@ class MainActivity : AppCompatActivity() {
                 it.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION) // xin quyen truy cap
                 launcher.launch(it)
             }
+        }
+
+        binding.savedImage.setOnClickListener {
+            startActivity(Intent(this, SavedImageActivity::class.java))
         }
     }
 }
