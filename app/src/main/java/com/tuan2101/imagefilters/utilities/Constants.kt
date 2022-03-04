@@ -6,5 +6,6 @@ package com.tuan2101.imagefilters.utilities
 class Constants {
     companion object {
         const val IMAGE_URI = "image_uri"
+        const val FILTERED_IMAGE_URI = "filtered_image_uri"
     }
 }

@@ -1,13 +1,13 @@
 package com.tuan2101.imagefilters.activities.editimage
 
+import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.MutableLiveData
+import com.tuan2101.imagefilters.activities.filteredImage.FilteredImageActivity
 import com.tuan2101.imagefilters.adpaters.ImageFilterAdapter
 import com.tuan2101.imagefilters.callbacks.ImageFilterListener
 import com.tuan2101.imagefilters.data.ImageFilter
@@ -70,6 +70,22 @@ class EditingNewImageActivity : AppCompatActivity(), ImageFilterListener {
         filteredBitmap.observe(this) {
             binding.preview.setImageBitmap(it)
         }
+
+        viewModel.saveFilteredImageDataState.observe(this) {
+            it?.let {
+                binding.saveProgressCircular.visibility = if (it.isLoading) View.VISIBLE else View.GONE
+                it.uri?.let { uri->
+                    Intent(this, FilteredImageActivity::class.java).apply {
+                        putExtra(Constants.FILTERED_IMAGE_URI, uri)
+                        startActivity(this)
+                    }
+                } ?: run {
+                    it.error?.let {  message ->
+                        disPlayToast(message)
+                    }
+                }
+            } ?: return@observe
+        }
     }
 
     private fun prepareImagePreview() {
@@ -95,6 +111,13 @@ class EditingNewImageActivity : AppCompatActivity(), ImageFilterListener {
             binding.preview.setImageBitmap(filteredBitmap.value)
         }
         //endregion
+
+        binding.saveButton.setOnClickListener {
+            filteredBitmap.value?.let { bitmap ->
+                viewModel.saveFilteredImage(bitmap)
+            }
+        }
+
     }
 
     override fun onFilterSelected(imageFilter: ImageFilter) {
