@@ -9,7 +9,7 @@ import kotlinx.coroutines.launch
  */
 object Coroutines {
 
-    /** run function work in background
+    /** run function working in background
      * param work: (higher order function) is suspend function without input and output
      */
     fun io(work: suspend (() -> Unit)) {

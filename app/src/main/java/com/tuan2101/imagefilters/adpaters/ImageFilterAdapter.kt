@@ -37,7 +37,6 @@ class ImageFilterAdapter(
                     imageFilterListener.onFilterSelected(imageFilter)
                     this@ImageFilterAdapter.notifyItemChanged(previousPosition.value!!, Unit)
                     this@ImageFilterAdapter.notifyItemChanged(currentPosition.value!!, Unit)
-
                 }
             }
             binding.textFilterName.setTextColor(

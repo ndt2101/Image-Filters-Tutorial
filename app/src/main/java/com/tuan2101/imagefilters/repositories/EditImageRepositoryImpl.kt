@@ -435,12 +435,18 @@ class EditImageRepositoryImpl(private val context: Context) : EditImageRepositor
         return imageFilters
     }
 
+    /** save bitmapImage by compressing bitmap to file
+     * param image: filtered bitmap image
+     * return file uri
+     */
     override suspend fun saveFilteredImage(image: Bitmap): Uri? {
         return runCatching {
+            // lấy directory saved images
             val mediaStorageDirectory =
                 File(context.getExternalFilesDir(Environment.DIRECTORY_PICTURES),
                 "Saved Images")
 
+            // tạo nếu chưa có
             if (!mediaStorageDirectory.exists()) {
                 mediaStorageDirectory.mkdirs()
             }
@@ -452,11 +458,15 @@ class EditImageRepositoryImpl(private val context: Context) : EditImageRepositor
         }.getOrNull()
     }
 
+    /** compress bitmap to file
+     * param file: file to save image
+     * param bitmap: filtered bitmap image to compress to file
+     */
     private fun saveFile(file: File, bitmap: Bitmap) {
         FileOutputStream(file).apply {
             bitmap.compress(Bitmap.CompressFormat.JPEG, 100, this)
-            flush()
-            close()
+            flush() // forces any buffered output bytes to be written out
+            close() // closes this output stream and releases any system resources associated with this stream.
         }
     }
 

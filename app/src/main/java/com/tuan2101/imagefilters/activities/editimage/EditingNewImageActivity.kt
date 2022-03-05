@@ -43,7 +43,7 @@ class EditingNewImageActivity : AppCompatActivity(), ImageFilterListener {
                 it.bitmap?.let { bitmap ->
                     originalBitmap = bitmap
                     filteredBitmap.value = originalBitmap
-                    gpuImage.setImage(originalBitmap)
+                    gpuImage.setImage(originalBitmap) // set origin bitmap cho gpuImage
 
                     viewModel.loadImageFilters(bitmap) // load filters
                     binding.preview.visibility = View.VISIBLE
@@ -120,9 +120,10 @@ class EditingNewImageActivity : AppCompatActivity(), ImageFilterListener {
 
     }
 
+    // set  filter cho gpuImage sau do tao bitmap voi filter va original bitmap duoc add ow tren
     override fun onFilterSelected(imageFilter: ImageFilter) {
         gpuImage.setFilter(imageFilter.filter)
-        filteredBitmap.value = gpuImage.bitmapWithFilterApplied
+        filteredBitmap.value = gpuImage.bitmapWithFilterApplied // tao bitmap voi filter duoc chon
 //        with(gpuImage) {
 //            with(imageFilter) {
 //                setFilter(filter)

@@ -15,11 +15,11 @@ class FilteredImageActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityFilteredImageBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        disPlaceImage()
+        displayImage()
         onClick()
     }
 
-    private fun disPlaceImage() {
+    private fun displayImage() {
         intent.getParcelableExtra<Uri>(Constants.FILTERED_IMAGE_URI)?.let {
             imageUri = it
             binding.image.setImageURI(imageUri)

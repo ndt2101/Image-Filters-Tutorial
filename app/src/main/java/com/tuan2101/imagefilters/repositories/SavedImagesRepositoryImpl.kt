@@ -13,9 +13,11 @@ class SavedImagesRepositoryImpl(private val context: Context): SavedImagesReposi
 
     override suspend fun loadSavedImage(): List<Pair<File, Bitmap>>? {
         val savedImage = ArrayList<Pair<File, Bitmap>>()
+        // lấy thư mục saved image
         val dir = File(context.getExternalFilesDir(Environment.DIRECTORY_PICTURES),
             "Saved Images"
         )
+        // duyệt từng file trong thư mục  để lấy bitmip
         return dir.listFiles()?.let {
             it.forEach { file ->
                 savedImage.add(Pair(file, getPreviewBitmap(file)))
@@ -24,6 +26,7 @@ class SavedImagesRepositoryImpl(private val context: Context): SavedImagesReposi
         }
     }
 
+    // lấy bitmap từ file và resize
     private fun getPreviewBitmap(file: File): Bitmap {
         val originBitmap = BitmapFactory.decodeFile(file.absolutePath)
         val width = 150
